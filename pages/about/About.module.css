@@ -1,0 +1,37 @@
+.container {
+  flex: auto;
+  border: 1px solid rgb(195, 195, 195);
+  margin: 20px 8%;
+  background-color: var(--white);
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+}
+.main {
+  height: calc(100vh - 230px);
+  padding: 0 20px;
+  opacity: 0;
+  animation: opacityOn 1s normal forwards;
+}
+@keyframes opacityOn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (max-width: 820px) {
+  .container {
+    margin: 0px 0px;
+    border-radius: 0px;
+    border: none;
+  }
+  .main {
+    height: calc(100vh - 180px);
+  }
+}
+@media (max-width: 440px) {
+  .main {
+    height: calc(100vh - 155px);
+  }
+}
