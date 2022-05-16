@@ -1,39 +1,39 @@
-import styles from './Huntz.module.css'
+import styles from "./Huntz.module.css";
 
-import Header from '../../components/header'
-import Footer from '../../components/footer'
-import Image from 'next/image'
+import Header from "../../components/header";
+import Footer from "../../components/footer";
+import Image from "next/image";
 
-import { dbRef } from '../../services/firebaseCon'
+import { dbRef } from "../../services/firebaseCon";
 
-import { get, child } from 'firebase/database'
-import { useEffect, useState } from 'react'
+import { get, child } from "firebase/database";
+import { useEffect, useState } from "react";
 
 export default function Huntz() {
-  const [jugadores, setJugadores] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [jugadores, setJugadores] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
 
-    get(child(dbRef, 'Jugadores'))
+    get(child(dbRef, "Jugadores"))
       .then((snapshot) => {
-        let arrTemp = []
+        let arrTemp = [];
         snapshot.forEach((child) => {
-          let jugador = child.val()
-          arrTemp.push(jugador)
+          let jugador = child.val();
+          arrTemp.push(jugador);
 
-          setJugadores((j) => [...j, jugador])
-        })
-        arrTemp.sort((a, b) => b.kills - a.kills)
-        setJugadores(arrTemp)
+          setJugadores((j) => [...j, jugador]);
+        });
+        arrTemp.sort((a, b) => b.kills - a.kills);
+        setJugadores(arrTemp);
       })
       .then(
         setTimeout(() => {
-          setLoading(false)
+          setLoading(false);
         }, 500)
-      )
-  }, [])
+      );
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -53,7 +53,7 @@ export default function Huntz() {
             <tbody>
               {jugadores.map((dato, i) => (
                 <tr key={i}>
-                  <td>{dato.nombre}</td>
+                  <td>{dato.name}</td>
                   <td>{dato.kills} </td>
                 </tr>
               ))}
@@ -75,7 +75,7 @@ export default function Huntz() {
         </div>
       </Footer>
     </div>
-  )
+  );
 }
 
 const Loading = () => {
@@ -86,5 +86,5 @@ const Loading = () => {
       <div></div>
       <div></div>
     </div>
-  )
-}
+  );
+};
