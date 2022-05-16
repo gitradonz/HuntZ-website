@@ -8,11 +8,13 @@
 }
 
 .main {
-  height: 100vh;
+  text-align: center;
   padding: 0 20px;
   opacity: 1;
   animation: opacityOn 6s ease;
+  transform: translate(0, -15em);
 }
+
 @keyframes opacityOn {
   0% {
     opacity: 0;
@@ -31,7 +33,7 @@
 }
 
 .title {
-  font-size: 6rem;
+  /* font-size: 6rem; */
   animation: animationTitle 0.5s normal forwards;
   animation-delay: 2s;
   transform: translate(0, 2em);
@@ -41,7 +43,7 @@
   0% {
   }
   100% {
-    transform: translate(0, -0.6em) scale(0.8);
+    transform: translate(0, -4em) scale(0.3);
   }
 }
 
@@ -79,7 +81,7 @@
   flex-direction: row;
   gap: 20px;
   overflow-x: scroll;
-  background-color: var(--grayWhite);
+  background-color: var(--navBar);
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   color: (var(--black));
