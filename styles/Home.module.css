@@ -133,3 +133,9 @@
     font-size: 4rem;
   }
 }
+
+.footerHome {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
