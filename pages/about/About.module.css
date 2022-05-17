@@ -12,6 +12,8 @@
   opacity: 0;
   animation: opacityOn 1s normal forwards;
   text-align: center;
+  overflow-y: scroll;
+  padding: 0 5rem;
 }
 @keyframes opacityOn {
   0% {
@@ -35,4 +37,6 @@
   .main {
     height: calc(100vh - 155px);
   }
+}
+.paragraph {
 }
