@@ -4,6 +4,9 @@
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 @media (max-width: 820px) {

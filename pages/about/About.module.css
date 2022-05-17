@@ -11,6 +11,7 @@
   padding: 0 20px;
   opacity: 0;
   animation: opacityOn 1s normal forwards;
+  text-align: center;
 }
 @keyframes opacityOn {
   0% {

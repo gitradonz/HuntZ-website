@@ -64,14 +64,12 @@ export default function Huntz() {
       <Footer>
         <div className={styles.footer}>
           Data obtained in realtime with firebase
-          <div className={styles.footerImg}>
-            <Image
-              src="/firebase.svg"
-              alt="firebaseImage"
-              width="40px"
-              height="40px"
-            />
-          </div>
+          <Image
+            src="/firebase.svg"
+            alt="firebaseImage"
+            width="40px"
+            height="40px"
+          />
         </div>
       </Footer>
     </div>

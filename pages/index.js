@@ -69,54 +69,39 @@ export default function Home() {
           </StyledContent>
         </div>
 
-        {/* <div className={styles.main}>
-          
-          
-          
-        
-        </div> */}
-
         <Footer>
-          <div className={styles.footerHome}>
-            <div>
-              <a
-                href="https://github.com/gitradonz"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/github.svg"
-                  alt="gthubImage"
-                  width="30px"
-                  height="30px"
-                />
-              </a>
-            </div>
-            <div className={styles.spin}>
-              <Image
-                src="/react.svg"
-                alt="reactImage"
-                width="30px"
-                height="30px"
-              />
-            </div>
-            <div>
-              <Image
-                src="/vercel.svg"
-                alt="vercelImage"
-                width="50px"
-                height="50px"
-              />
-            </div>
-            <div>
-              <Image
-                src="/firebase.svg"
-                alt="firebaseImage"
-                width="30px"
-                height="30px"
-              />
-            </div>
+          <a
+            href="https://github.com/gitradonz"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src="/github.svg"
+              alt="gthubImage"
+              width="30px"
+              height="30px"
+            />
+          </a>
+          <div className={styles.spin}>
+            <Image
+              src="/react.svg"
+              alt="reactImage"
+              width="30px"
+              height="30px"
+            />
           </div>
+          <Image
+            src="/vercel.svg"
+            alt="vercelImage"
+            width="50px"
+            height="50px"
+          />
+          <Image
+            src="/firebase.svg"
+            alt="firebaseImage"
+            width="30px"
+            height="30px"
+          />
         </Footer>
       </div>
     </>
