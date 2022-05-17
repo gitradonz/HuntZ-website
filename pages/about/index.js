@@ -16,10 +16,10 @@ export default function About() {
         </StyledTitle>
         <div className={styles.paragraph}>
           <Image
-            src="/github.svg"
-            alt="gthubImage"
-            width="120px"
-            height="120px"
+            src="/esports.jpg"
+            alt="esportsImage"
+            width="500px"
+            height="300px"
           />
           <StyledP>
             With the growing of e-sports scene, all competitive players around
@@ -29,23 +29,23 @@ export default function About() {
         </div>
         <div className={styles.paragraph}>
           <Image
-            src="/github.svg"
-            alt="gthubImage"
-            width="120px"
-            height="120px"
+            src="/hungryocelote.jpg"
+            alt="hungryoceloteImage"
+            width="500px"
+            height="300px"
           />
           <StyledP>
-            For this we created HuntZ, to help the most demanding ones to get
+            For this reason, we created HuntZ, to help the most demanding ones to get
             that rank 1 helping them to improve their reflexes and warm up
             before they enter the game.
           </StyledP>
         </div>
         <div className={styles.paragraph}>
-          <Image
-            src="/github.svg"
-            alt="gthubImage"
-            width="120px"
-            height="120px"
+        <Image
+            src="/reflexes.jpg"
+            alt="reflexesImage"
+            width="500px"
+            height="300px"
           />
           <StyledP>
             HuntZ is a small game you can install and play within a few minits,
@@ -96,4 +96,6 @@ const StyledLink = styled.a`
 const StyledP = styled.p`
   color: var(--black);
   font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 7rem;
 `;

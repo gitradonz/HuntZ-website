@@ -10,6 +10,8 @@
   --black: black;
   --navBar: #f7f7f763;
 
+  --blue-50: #dcefff;
+
   --responsiveTablet: 820px;
   --responsiveMobil: 440px: 
 }
@@ -17,8 +19,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   /* overflow: hidden; */
   background: radial-gradient(black 3px, transparent 4px),
     radial-gradient(black 3px, transparent 4px),

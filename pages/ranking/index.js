@@ -4,6 +4,8 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Image from "next/image";
 
+import styled from "styled-components";
+
 import { dbRef } from "../../services/firebaseCon";
 
 import { get, child } from "firebase/database";
@@ -39,20 +41,20 @@ export default function Huntz() {
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
-        <h2 className={styles.title}>Ranking global</h2>
+        <h2 className={styles.title}>Global rank</h2>
         {loading ? (
           <Loading />
         ) : (
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th>Puntuación</th>
+                <StyledTh>Nickname</StyledTh>
+                <StyledTh>Kills</StyledTh>
               </tr>
             </thead>
             <tbody>
               {jugadores.map((dato, i) => (
-                <tr key={i}>
+                <tr key={i} className={styles.tableRows}>
                   <td>{dato.name}</td>
                   <td>{dato.kills} </td>
                 </tr>
@@ -86,3 +88,9 @@ const Loading = () => {
     </div>
   );
 };
+
+const StyledTh = styled.th`
+  font-weight: bold;
+  font-size: larger;
+  background-color: var(--blue-50);
+`

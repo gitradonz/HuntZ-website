@@ -27,6 +27,7 @@
 
 .title {
   text-align: center;
+  font-size: xx-large;
 }
 
 .table {
@@ -34,6 +35,10 @@
   width: 100%;
   text-align: center;
   padding: 0 50px;
+}
+
+.tableRows:nth-child(odd) {
+  background-color: var(--grayWhite);
 }
 
 .footer {
