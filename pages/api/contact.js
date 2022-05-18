@@ -1,8 +1,7 @@
 const mail = require("@sendgrid/mail");
 
-mail.setApiKey(process.env.SENDGRID_API_KEY);
-
-export default (req, res) => {
+export default async (req, res) => {
+  mail.setApiKey(process.env.SENDGRID_API_KEY);
   const body = JSON.parse(req.body);
   const message = `
   Email: ${body.email}\r\n
@@ -17,14 +16,10 @@ export default (req, res) => {
   };
 
   // console.log(data);
-  mail
-    .send(data)
-    .then(() => {
-      console.log("Email sent", data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
-  res.status(200).json({ status: "OK" });
+  try {
+    await mail.send(data);
+    res.status(200).json({ status: "OK" });
+  } catch (error) {
+    res.status(500).json({ error: "Error sending email" });
+  }
 };
