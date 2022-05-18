@@ -3,12 +3,14 @@ import Header from "../../components/header";
 import styles from "./Contact.module.css";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const StyledFooterText = styled.p`
   font-size: 0.6rem;
 `;
 
 export default function Contact() {
+  const [sended, setSended] = useState();
   const {
     register,
     handleSubmit,
@@ -25,33 +27,46 @@ export default function Contact() {
               fetch("/api/contact", {
                 method: "post",
                 body: JSON.stringify(data),
-              });
+              })
+                .then((a) => {
+                  a.status === 200 && setSended(true);
+                })
+                .catch((e) => console.log(e));
             })}
           >
-            <div>
-              <Input
-                {...register("email", {
-                  required: "Email required.",
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid email address",
-                  },
-                })}
-                placeholder="Your Email..."
-              ></Input>
-              <Label>{errors.email?.message}</Label>
-            </div>
-            <div>
-              <StyledTextarea
-                {...register("message", {
-                  required: "Message required.",
-                  minLength: { value: 10, message: "Minimum 10 characters." },
-                })}
-                placeholder="Message..."
-              ></StyledTextarea>
-              <Label>{errors.message?.message}</Label>
-            </div>
-            <Button>ENVIAR</Button>
+            {sended ? (
+              <p>Message sent !</p>
+            ) : (
+              <>
+                <div>
+                  <Input
+                    {...register("email", {
+                      required: "Email required.",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address",
+                      },
+                    })}
+                    placeholder="Your Email..."
+                  ></Input>
+                  <Label>{errors.email?.message}</Label>
+                </div>
+                <div>
+                  <StyledTextarea
+                    {...register("message", {
+                      required: "Message required.",
+                      minLength: {
+                        value: 10,
+                        message: "Minimum 10 characters.",
+                      },
+                    })}
+                    placeholder="Message..."
+                  ></StyledTextarea>
+                  <Label>{errors.message?.message}</Label>
+                </div>
+                <Button>SEND</Button>{" "}
+              </>
+            )}
           </Form>
         </FormGroup>
       </main>
