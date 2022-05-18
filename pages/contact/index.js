@@ -22,7 +22,10 @@ export default function Contact() {
           <Title>Send me a mail</Title>
           <Form
             onSubmit={handleSubmit((data) => {
-              console.log(data);
+              fetch("/api/contact", {
+                method: "post",
+                body: JSON.stringify(data),
+              });
             })}
           >
             <div>
