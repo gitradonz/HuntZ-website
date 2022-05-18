@@ -29,6 +29,7 @@ export default function Contact() {
                 body: JSON.stringify(data),
               })
                 .then((a) => {
+                  console.log(a);
                   a.status === 200 && setSended(true);
                 })
                 .catch((e) => console.log(e));
