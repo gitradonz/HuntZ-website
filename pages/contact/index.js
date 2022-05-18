@@ -18,34 +18,110 @@ export default function Contact() {
     <div className={styles.container}>
       <Header />
       <main className={styles.main}>
-        <form
-          onSubmit={handleSubmit((data) => {
-            console.log(data);
-          })}
-        >
-          <div>
-            <input
-              {...register("email", { required: "Email required." })}
-              placeholder="Email.."
-            ></input>
-            <span>{errors.email?.message}</span>
-          </div>
-          <div>
-            <input
-              {...register("message", {
-                required: "Message required.",
-                minLength: { value: 10, message: "Minimum 10 characters." },
-              })}
-              placeholder="Message..."
-            ></input>
-            <span>{errors.message?.message}</span>
-          </div>
-          <button>ENVIAR</button>
-        </form>
+        <FormGroup>
+          <Title>Send me a mail</Title>
+          <Form
+            onSubmit={handleSubmit((data) => {
+              console.log(data);
+            })}
+          >
+            <div>
+              <Input
+                {...register("email", {
+                  required: "Email required.",
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid email address",
+                  },
+                })}
+                placeholder="Your Email..."
+              ></Input>
+              <Label>{errors.email?.message}</Label>
+            </div>
+            <div>
+              <StyledTextarea
+                {...register("message", {
+                  required: "Message required.",
+                  minLength: { value: 10, message: "Minimum 10 characters." },
+                })}
+                placeholder="Message..."
+              ></StyledTextarea>
+              <Label>{errors.message?.message}</Label>
+            </div>
+            <Button>ENVIAR</Button>
+          </Form>
+        </FormGroup>
       </main>
       <Footer>
-        <StyledFooterText>all right reserved</StyledFooterText>
+        <StyledFooterText>
+          all right reserved © - radonzStudio@2022
+        </StyledFooterText>
       </Footer>
     </div>
   );
 }
+
+const FormGroup = styled.div`
+  width: 300px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Label = styled.label`
+  margin-bottom: 0.5em;
+  color: var(--errorLabel);
+  display: block;
+  padding-left: 0.5em;
+`;
+
+const Title = styled.h3`
+  font-size: xx-large;
+  color: var(--black);
+  text-align: center;
+`;
+
+const StyledTextarea = styled.textarea`
+  min-width: 300px;
+  min-height: 100px;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  overflow-y: scroll;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding: 0.5em 1em;
+  background: var(--blue-50);
+`;
+
+const Input = styled.input`
+  padding: 0.5em 1em;
+  background: var(--blue-50);
+  border: none;
+  border-radius: 3px;
+  min-width: 300px;
+  margin-bottom: 0.5em;
+`;
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid var(--secondaryColor);
+  color: var(--secondaryColor);
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
+  }
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
