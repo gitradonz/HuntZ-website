@@ -8,7 +8,10 @@
 }
 .main {
   height: calc(100vh - 230px);
-  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 30px 20px;
   opacity: 0;
   animation: opacityOn 1s normal forwards;
 }

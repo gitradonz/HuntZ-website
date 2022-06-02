@@ -82,7 +82,6 @@ export default function Contact() {
 
 const FormGroup = styled.div`
   width: 300px;
-  margin: 50px auto;
   display: flex;
   flex-direction: column;
 `;
